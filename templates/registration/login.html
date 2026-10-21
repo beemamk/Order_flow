@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block auth_content %}
+<main class="min-h-screen bg-[#c4c4c4] p-3 sm:p-6 lg:p-8">
+  <div class="mx-auto flex min-h-[calc(100vh-1.5rem)] max-w-[1720px] items-center justify-center rounded-[28px] bg-[#f4f4f4] p-4 sm:min-h-[calc(100vh-3rem)] sm:p-8 lg:min-h-[calc(100vh-4rem)] lg:p-12">
+    <div class="w-full max-w-[1180px] overflow-hidden rounded-[24px] border border-white bg-white">
+      <header class="flex items-center justify-between gap-4 border-b border-[#eeeeee] px-5 py-4 sm:px-8">
+        <a href="/" class="inline-flex items-center rounded-full border border-[#ededed] bg-white px-4 py-2 text-sm font-semibold tracking-tight text-[#151515]">
+          <span class="mr-2 grid h-6 w-6 place-items-center rounded-full bg-[#171717] text-[9px] font-bold text-white">OF</span>OrderFlow
+        </a>
+        <span class="hidden text-xs font-medium text-[#777] sm:block">D2C operations workspace <span class="mx-2 text-[#d5d5d5]">·</span> Local demo</span>
+      </header>
+
+      <div class="grid lg:grid-cols-[1.08fr_.92fr]">
+        <section class="flex flex-col justify-between bg-[#f6f6f6] p-6 sm:p-9 lg:min-h-[610px] lg:p-12">
+          <div class="inline-flex w-fit items-center gap-2 rounded-full border border-[#e9e9e9] bg-white px-3 py-2 text-xs font-medium text-[#555]">
+            <span class="h-2 w-2 rounded-full bg-[#f34a2d]"></span> Order follow-up, under control
+          </div>
+          <div class="my-12 max-w-xl lg:my-0">
+            <p class="eyebrow mb-4 text-[#e64a2e]">D2C OPERATIONS COMMAND CENTRE</p>
+            <h1 class="text-4xl font-medium leading-[1.08] tracking-[-0.045em] text-[#111] sm:text-5xl">Every delayed order.<br><span class="text-[#777]">One clear next step.</span></h1>
+            <p class="mt-5 max-w-lg text-sm leading-6 text-[#676767] sm:text-base sm:leading-7">Spot delivery exceptions, assign the right owner and keep every customer follow-up visible in one calm workspace.</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 border-t border-[#e4e4e4] pt-5 sm:gap-4 sm:pt-6">
+            <div><strong class="block text-xl font-medium tracking-tight text-[#151515] sm:text-2xl">05</strong><span class="mt-1 block text-[10px] leading-4 text-[#777] sm:text-xs">automated rules</span></div>
+            <div><strong class="block text-xl font-medium tracking-tight text-[#151515] sm:text-2xl">100%</strong><span class="mt-1 block text-[10px] leading-4 text-[#777] sm:text-xs">traceable actions</span></div>
+            <div><strong class="block text-xl font-medium tracking-tight text-[#151515] sm:text-2xl">0</strong><span class="mt-1 block text-[10px] leading-4 text-[#777] sm:text-xs">missed follow-ups</span></div>
+          </div>
+        </section>
+
+        <section class="flex items-center justify-center px-6 py-10 sm:px-10 lg:px-12">
+          <div class="w-full max-w-sm">
+            <div class="mb-8 lg:hidden">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-[#171717] text-xs font-bold text-white">OF</span>
+            </div>
+            <p class="eyebrow text-[#e64a2e]">TEAM ACCESS</p>
+            <h2 class="mt-2 text-3xl font-medium tracking-[-0.04em] text-[#111]">Welcome back</h2>
+            <p class="mt-2 text-sm leading-6 text-[#777]">Sign in to pick up where your team left off.</p>
+
+            {% if form.errors %}<div role="alert" class="mt-5 rounded-xl border border-[#f1c9c0] bg-[#fff5f2] px-4 py-3 text-sm text-[#a8321b]">The username or password is incorrect. Please try again.</div>{% endif %}
+
+            <form method="post" class="mt-7 space-y-5">
+              {% csrf_token %}
+              <div>
+                <label class="mb-2 block text-xs font-semibold text-[#464646]" for="id_username">Username</label>
+                <input class="block w-full rounded-xl border border-[#e3e3e3] bg-white px-4 py-3 text-sm text-[#171717] outline-none transition placeholder:text-[#aaa] hover:border-[#c8c8c8] focus:border-[#222] focus:ring-2 focus:ring-[#171717]/10" type="text" name="username" autofocus required id="id_username" placeholder="manager" autocomplete="username">
+              </div>
+              <div>
+                <label class="mb-2 block text-xs font-semibold text-[#464646]" for="id_password">Password</label>
+                <input class="block w-full rounded-xl border border-[#e3e3e3] bg-white px-4 py-3 text-sm text-[#171717] outline-none transition placeholder:text-[#aaa] hover:border-[#c8c8c8] focus:border-[#222] focus:ring-2 focus:ring-[#171717]/10" type="password" name="password" required id="id_password" placeholder="Enter your password" autocomplete="current-password">
+              </div>
+              <button class="group flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#e94b2f] focus:outline-none focus:ring-2 focus:ring-[#171717] focus:ring-offset-2" type="submit">Continue to dashboard <span class="transition-transform group-hover:translate-x-1">→</span></button>
+            </form>
+
+            <div class="mt-6 rounded-xl bg-[#f5f5f5] px-4 py-3.5">
+              <p class="text-[10px] font-semibold uppercase tracking-[.12em] text-[#888]">Demo sign-in</p>
+              <p class="mt-1.5 text-xs text-[#555]">Username <span class="ml-1 font-semibold text-[#191919]">manager</span><span class="mx-2 text-[#ccc]">·</span>Password <span class="ml-1 font-semibold text-[#191919]">manager123</span></p>
+            </div>
+            <p class="mt-6 text-center text-xs text-[#999]">Internal prototype <span class="mx-1 text-[#ccc]">·</span> Data stays in local SQLite</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

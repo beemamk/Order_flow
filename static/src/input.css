@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-ink-950 text-slate-700 antialiased; }
+  body { @apply min-h-screen bg-ink-950 font-sans; }
+  ::selection { @apply bg-cobalt-500/40 text-white; }
+}
+
+@layer components {
+  .panel { @apply rounded-[22px] border border-white bg-white shadow-[0_8px_24px_rgba(0,0,0,.035)]; }
+  .panel-header { @apply flex items-center justify-between border-b border-slate-100 px-5 py-4; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-500; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-cobalt-500 bg-cobalt-500 px-4 py-2 text-sm font-semibold transition hover:bg-cobalt-600 focus:outline-none focus:ring-2 focus:ring-cobalt-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50; color: #fff; }
+  .btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-cobalt-400 focus:ring-offset-2; }
+  .nav-link { @apply inline-flex shrink-0 items-center gap-2 rounded-full border border-transparent px-5 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-white hover:text-black; }
+  .nav-link.active { @apply border-black bg-black hover:bg-black; color: #fff; }
+  .table-shell { @apply overflow-x-auto; }
+  .data-table { @apply min-w-full text-left text-sm; }
+  .data-table thead { @apply border-y border-slate-200 bg-slate-50 text-[10px] uppercase tracking-[0.14em] text-slate-500; }
+  .data-table th { @apply whitespace-nowrap px-5 py-3 font-semibold; }
+  .data-table td { @apply whitespace-nowrap border-b border-slate-800/80 px-5 py-3.5; }
+  .data-table tbody tr { @apply transition hover:bg-slate-50; }
+  .form-label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-400; }
+  .form-control { @apply block w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-cobalt-400 focus:ring-1 focus:ring-cobalt-400; }
+  .status-dot { @apply inline-block h-1.5 w-1.5 rounded-full; }
+}
+
+.app-frame { box-shadow: 0 18px 50px rgba(0,0,0,.06); }
+.app-frame .text-white { color: #161616; }
+.app-frame .btn-primary, .app-frame .nav-link.active, .app-frame .account-avatar, .app-frame .bg-black.text-white { color: #fff; }
+.app-frame .text-slate-100 { color: #1f2937; }
+.app-frame .text-slate-200 { color: #374151; }
+.app-frame .text-slate-300 { color: #4b5563; }
+.app-frame .text-slate-400 { color: #64748b; }
+.app-frame .bg-slate-950, .app-frame .bg-slate-900 { background-color: #f4f4f5; }
+.app-frame .bg-slate-800 { background-color: #e5e7eb; }
+.app-frame .bg-slate-950\/60 { background-color: #fafafa; }
+.app-frame .bg-slate-950\/70 { background-color: #f8f8f8; }
+.app-frame .border-red-900, .app-frame .border-amber-900, .app-frame .border-blue-900 { border-color: #e5e7eb; }
+.app-frame .border-slate-800, .app-frame .border-slate-700 { border-color: #e5e7eb; }
+.app-frame .divide-slate-800 > :not([hidden]) ~ :not([hidden]) { border-color: #e5e7eb; }
+.app-frame .bg-red-950\/50, .app-frame .bg-red-950\/40, .app-frame .bg-amber-950\/50, .app-frame .bg-amber-950\/40, .app-frame .bg-amber-950\/20, .app-frame .bg-blue-950\/20, .app-frame .bg-blue-950\/10, .app-frame .bg-emerald-950\/30 { background-color: #f6f6f6; }
+.app-frame .panel-header h2, .app-frame h1, .app-frame h2, .app-frame h3 { color: #161616; }
+.app-frame .data-table td { border-color: #ededed; }
+.app-frame .table-shell { border-radius: 0 0 22px 22px; }
+.app-frame .text-red-300, .app-frame .text-red-400, .app-frame .text-red-500 { color: #c83b25; }
+.app-frame .text-amber-300, .app-frame .text-amber-400 { color: #a66a00; }
+.app-frame .text-emerald-300, .app-frame .text-emerald-400 { color: #16845e; }
+.app-frame .text-blue-300 { color: #255bc5; }
+.dashboard-filters input, .dashboard-filters select { width: auto; min-width: 142px; }
+.dashboard-filters select { max-width: 195px; }
